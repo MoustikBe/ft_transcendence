@@ -14,5 +14,4 @@ clean:
 
 fclean: clean
 		docker system prune -af --volumes
-		rm -rf /home/misaac-c/data/wordpress/*
 		rm -rf /home/misaac-c/data/mariadb/*
