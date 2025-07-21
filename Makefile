@@ -1,10 +1,13 @@
-PATH_YML = ./srcs/docker-compose.yml
+PATH_YML := ./srcs/docker-compose.yml
+USER := $(shell whoami)
+DATA_DIR := /home/$(USER)/data/mariadb
 
-.PHONY: all clean fclean re
+.PHONY: all up clean fclean re
 
 $(NAME): up
 
 up:
+		mkdir -p $(DATA_DIR)
 		docker-compose -f $(PATH_YML) up --build
 
 all: up
@@ -14,4 +17,6 @@ clean:
 
 fclean: clean
 		docker system prune -af --volumes
-		rm -rf /home/misaac-c/data/mariadb/*
+		rm -rf $(DATA_DIR)/*
+
+re: fclean all
