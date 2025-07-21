@@ -1,6 +1,7 @@
 In order to have a version that can work directly when you download the git you need to configure the .env file.
 1. Create it in src/.env.
 2. Fill it with thoses data.
+3. Make sure this file exist : /home/$(USER)/data/mariadb -> will be fix in next version.
 
 ----------------------------------
 DOMAIN_NAME=transcendence.42.fr
@@ -23,4 +24,4 @@ USER1_LOGIN=
 USER1_PASS=
 USER1_MAIL=
 
-3. Make sure this file exist : /home/$(USER)/data/mariadb -> will be fix in next version.
+
