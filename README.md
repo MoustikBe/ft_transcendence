@@ -3,7 +3,7 @@ In order to have a version that can work directly when you download the git you 
 2. Fill it with thoses data (see at the end of the files)
 3. Make sure this file exist : /home/$(USER)/data/mariadb -> will be fix in next version
 4. Make sure you edit your /etc/hosts with : 127.0.0.1   	transcendence.42.fr
-5. For making it work in sgoinfre of 42 -> use port 4443 at the place of 443 
+5. For making it work in sgoinfre of 42 -> use port 4443 at the place of 443 and access throw https://localhost:4443
 ----------------------------------
 DOMAIN_NAME=transcendence.42.fr
 
