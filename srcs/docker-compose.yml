@@ -1,19 +1,5 @@
 
 services:
-  mariadb:
-    container_name: mariadb
-    image: mariadb
-    networks:
-      - transcendence
-    build:
-      context: requirements/mariadb
-      dockerfile: Dockerfile
-    env_file : .env
-    volumes:
-      - mariadb:/var/lib/mysql
-    restart: unless-stopped
-    expose:
-      - "3306"
   nginx:
     container_name: nginx
     image: nginx
@@ -38,17 +24,13 @@ services:
   backend:
     container_name: backend
     build:
-      context: requirements/backend
-      dockerfile: Dockerfile
-    env_file: .env
+      context: ./requirements/backend
     networks:
       - transcendence
-    depends_on:
-      - mariadb
-    ports:
-      - "8000:8000"
-    restart: on-failure
-    
+    restart: unless-stopped
+    expose:
+      - "3000"
+
   frontend:
     container_name: frontend
     build:
@@ -65,12 +47,6 @@ services:
 volumes:
   frontend:
     driver: local
-  mariadb:
-    driver: local
-    driver_opts:
-      type: 'none'
-      o: 'bind'
-      device: '/home/misaac-c/data/mariadb'
 
 networks:
  transcendence:
